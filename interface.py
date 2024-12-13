@@ -9,7 +9,7 @@ message = st.text_area("Entrez votre message ici")
 
 # Bouton d'analyse.
 def analyser_sentiment(message):
-    url = 'https://badbuzzwebapp-f3brayd9dmgfcsb8.canadacentral-01.azurewebsites.net/'
+    url = 'https://badbuzzwebapp-f3brayd9dmgfcsb8.canadacentral-01.azurewebsites.net/predict'
     data = {'text': message}
     response = requests.post(url, json=data)
     print(response)
