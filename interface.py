@@ -12,7 +12,6 @@ def analyser_sentiment(message):
     url = 'https://badbuzzwebapp-f3brayd9dmgfcsb8.canadacentral-01.azurewebsites.net/predict'
     data = {'text': message}
     response = requests.post(url, json=data)
-    print(response)
     prediction = response.json()['prediction']
     return prediction
 
@@ -20,3 +19,14 @@ def analyser_sentiment(message):
 if st.button("Analyser le sentiment"):
     prediction = analyser_sentiment(message)
     st.write("Le sentiment est : ", prediction)
+
+def feedback_user(message):
+    url = 'https://badbuzzwebapp-f3brayd9dmgfcsb8.canadacentral-01.azurewebsites.net/log_trace'
+    data = {"text": message, 
+            "predicted_sentiment": prediction
+            }
+    requests.post(url, json=data)
+
+if st.button("La prédiction n'est pas correct"):
+    feedback_user()
+    st.write("Merci pour votre retour !")
