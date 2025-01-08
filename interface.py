@@ -12,10 +12,10 @@ def analyser_sentiment(message):
     url = 'https://oc7badbuzz-cxetazfvbharfdfc.canadacentral-01.azurewebsites.net/predict'
     data = {'text': message}
     response = requests.post(url, json=data)
-    print(response)
     prediction = response.json()['prediction']
     return prediction
 
+prediction = None
 
 if st.button("Analyser le sentiment"):
     prediction = analyser_sentiment(message)
@@ -29,6 +29,9 @@ def feedback_user(message, prediction):
     requests.post(url, json=data)
 
 if st.button("La prédiction n'est pas correct"):
-    print(f"le message {message} a un sentiment {prediction}")
-    feedback_user(message=message, prediction=prediction)
-    st.write("Merci pour votre retour !")
+    if prediction is not None:
+        print(f"le message {message} a un sentiment {prediction}")
+        feedback_user(message=message, prediction=prediction)
+        st.write("Merci pour votre retour !")
+    else:
+        st.write("Veuillez d'abord analyser le sentiment.")
