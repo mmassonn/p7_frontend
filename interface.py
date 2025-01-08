@@ -21,7 +21,7 @@ if st.button("Analyser le sentiment"):
     prediction = analyser_sentiment(message)
     st.write("Le sentiment est : ", prediction)
 
-def feedback_user(message):
+def feedback_user(message, prediction):
     url = 'oc7badbuzz-cxetazfvbharfdfc.canadacentral-01.azurewebsites.net/log_trace'
     data = {"text": message, 
             "predicted_sentiment": prediction
@@ -29,5 +29,5 @@ def feedback_user(message):
     requests.post(url, json=data)
 
 if st.button("La prédiction n'est pas correct"):
-    feedback_user(message)
+    feedback_user(message, prediction)
     st.write("Merci pour votre retour !")
