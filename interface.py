@@ -29,6 +29,6 @@ def feedback_user(message, prediction):
     requests.post(url, json=data)
 
 if st.button("La prédiction n'est pas correct"):
-    print(f"le message {message} a un sentiment {prediction})
+    print(f"le message {message} a un sentiment {prediction}")
     feedback_user(message=message, prediction=prediction)
     st.write("Merci pour votre retour !")
