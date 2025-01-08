@@ -16,7 +16,7 @@ def analyser_sentiment(message):
     return prediction
 
 def feedback_user(message, prediction):
-    url = 'oc7badbuzz-cxetazfvbharfdfc.canadacentral-01.azurewebsites.net/log_trace'
+    url = 'https://oc7badbuzz-cxetazfvbharfdfc.canadacentral-01.azurewebsites.net/log_trace'
     data = {"text": message, 
             "predicted_sentiment": prediction
             }
