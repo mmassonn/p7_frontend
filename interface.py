@@ -29,9 +29,6 @@ if st.button("Analyser le sentiment"):
     st.write("Le sentiment est : ", prediction)
 
 if st.button("La prédiction n'est pas correct"):
-    if prediction is not None:
-        print(f"le message {message} a un sentiment {prediction}")
-        feedback_user(message=message, prediction=prediction)
-        st.write("Merci pour votre retour !")
-    else:
-        st.write("Veuillez d'abord analyser le sentiment.")
+    prediction = analyser_sentiment(message)
+    feedback_user(message=message, prediction=prediction)
+    st.write("Merci pour votre retour !")
