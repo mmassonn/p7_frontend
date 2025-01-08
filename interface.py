@@ -29,5 +29,5 @@ def feedback_user(message):
     requests.post(url, json=data)
 
 if st.button("La prédiction n'est pas correct"):
-    feedback_user()
+    feedback_user(message)
     st.write("Merci pour votre retour !")
