@@ -9,7 +9,7 @@ message = st.text_area("Entrez votre message ici")
 
 # Bouton d'analyse.
 def analyser_sentiment(message):
-    url = 'https://badbuzzwebapp-f3brayd9dmgfcsb8.canadacentral-01.azurewebsites.net/predict'
+    url = 'https://oc7badbuzz-cxetazfvbharfdfc.canadacentral-01.azurewebsites.net/predict'
     data = {'text': message}
     response = requests.post(url, json=data)
     print(response)
@@ -22,7 +22,7 @@ if st.button("Analyser le sentiment"):
     st.write("Le sentiment est : ", prediction)
 
 def feedback_user(message):
-    url = 'https://badbuzzwebapp-f3brayd9dmgfcsb8.canadacentral-01.azurewebsites.net/log_trace'
+    url = 'oc7badbuzz-cxetazfvbharfdfc.canadacentral-01.azurewebsites.net/log_trace'
     data = {"text": message, 
             "predicted_sentiment": prediction
             }
