@@ -9,14 +9,14 @@ message = st.text_area("Entrez votre message ici")
 
 # Bouton d'analyse.
 def analyser_sentiment(message):
-    url = 'https://oc7badbuzz-cxetazfvbharfdfc.canadacentral-01.azurewebsites.net/predict'
+    url = 'https://oc7app-fhhfagg0c4etcsd3.canadacentral-01.azurewebsites.net/predict'
     data = {'text': message}
     response = requests.post(url, json=data)
     prediction = response.json()['prediction']
     return prediction
 
 def feedback_user(message, prediction):
-    url = 'https://oc7badbuzz-cxetazfvbharfdfc.canadacentral-01.azurewebsites.net/log_trace'
+    url = 'https://oc7app-fhhfagg0c4etcsd3.canadacentral-01.azurewebsites.net/log_trace'
     data = {"text": message, 
             "predicted_sentiment": prediction
             }
